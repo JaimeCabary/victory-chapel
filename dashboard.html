@@ -1,44 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Victory Chapel Dashboard</title>
 </head>
 <body>
-    <h2>Welcome, <span id="userEmail"></span>!</h2>
-<script>
-  async function loadDashboard() {
-    const token = localStorage.getItem('token');
+  <h1 id="welcomeMessage">Loading...</h1>
+  <div id="userDetails"></div>
+
+  <script>
+    // 1️⃣ Get the JWT from localStorage
+    const token = localStorage.getItem('jwt_token');
+
     if (!token) {
-      alert("Not logged in! Redirecting to login page.");
+      // No token means user isn't logged in
       window.location.href = 'sign-in.html';
-      return;
-    }
-
-    try {
-      const res = await fetch('http://localhost:5000/auth/dashboard', {
+    } else {
+      // 2️⃣ Make a request to the backend to get user details
+      fetch('http://localhost:5000/auth/me', {
+        method: 'GET',
         headers: {
-          'Authorization': 'Bearer ' + token
+          'Authorization': 'Bearer ' + token,
         }
-      });
-      const data = await res.json();
-
-      if (res.ok) {
-        document.getElementById('userEmail').innerText = data.email;
-        // You can display other user information here
-      } else {
-        alert(data.message || "Session expired. Please log in again.");
+      })
+      .then(response => {
+        if (!response.ok) {
+          // Token invalid or user not found
+          window.location.href = 'sign-in.html';
+        }
+        return response.json();
+      })
+      .then(data => {
+        // 3️⃣ Use the data to personalize the page
+        document.getElementById('welcomeMessage').textContent = `Welcome, ${data.username}!`;
+        document.getElementById('userDetails').innerHTML = `
+          <p>Email: ${data.email}</p>
+          <p>Joined At: ${new Date(data.createdAt).toLocaleDateString()}</p>
+        `;
+      })
+      .catch(error => {
+        console.error(error);
         window.location.href = 'sign-in.html';
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Error loading Dashboard.");
+      });
     }
-  }
-
-  loadDashboard();
-</script>
-
+  </script>
 </body>
 </html>
