@@ -19,7 +19,13 @@
        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha512-Sf6otbOsh3fK9nPpvKDIXTrtFhvJww1NpjTZTxYXLfR4XOe7HpjMGItx1CyeYKrXBK3dR3gkP1e1hRWTK3I2NQ=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
         <!-- font awesome style -->
         <link href="css/font-awesome.min.css" rel="stylesheet" />
 
@@ -91,17 +97,20 @@ https://www.tooplate.com/view/2127-little-fashion
     <!-- Social Sign Up Buttons -->
     <div class="social-login">
       <a href="https://accounts.google.com/" class="custom-btn social-btn">
-        <i class="fab fa-google"></i> Continue with Google
+        <i class="fa fa-google"></i> Continue with Google
       </a>
       <a href="#" class="custom-btn social-btn">
-        <i class="fab fa-facebook-f"></i> Continue with Facebook
+        <i class="fa fa-facebook"></i> Continue with Facebook
+      </a>
+      <a href="#" class="custom-btn social-btn">
+        <i class="fa fa-apple"></i> Continue with Apple
       </a>
     </div>
 
     <div class="div-separator"><span>or</span></div>
 
     <!-- Registration Form -->
-    <form class="signup-form" method="POST">
+    <form class="signup-form" id="signup-form" method="POST">
       <div class="form-floating">
         <input
           type="email"
@@ -109,7 +118,7 @@ https://www.tooplate.com/view/2127-little-fashion
           id="email"
           pattern="[^ @]*@[^ @]*"
           class="form-control"
-          placeholder="Email address"
+          placeholder="Enter your email address"
           required
         />
         <label for="email">Email address</label>
@@ -122,12 +131,12 @@ https://www.tooplate.com/view/2127-little-fashion
           id="password"
           pattern="[0-9a-zA-Z]{4,10}"
           class="form-control"
-          placeholder="Password"
+          placeholder="Enter a strong password (4–10 chars)"
           required
         />
         <label for="password">Password</label>
-        <p class="texty">* Shall include 0–9 A–Z/a–z (4–10 characters)</p>
-      </div>
+        <!-- <p class="texty">* Shall include 0–9 A–Z/a–z (4–10 characters)</p>
+      </div> -->
 
       <div class="form-floating">
         <input
@@ -136,11 +145,15 @@ https://www.tooplate.com/view/2127-little-fashion
           id="confirm_password"
           pattern="[0-9a-zA-Z]{4,10}"
           class="form-control"
-          placeholder="Confirm Password"
+          placeholder="Re-type your password"
           required
         />
         <label for="confirm_password">Confirm Password</label>
       </div>
+
+      <div id="errorMessage" style="color: red; text-align: center;"></div>
+      <div id="successMessage" style="color: green; text-align: center;"></div>
+
 
       <div class="at">
         <button type="submit" class="butt" id="formi">Create Account</button>
@@ -242,39 +255,43 @@ https://www.tooplate.com/view/2127-little-fashion
           <!-- custom js -->
           <script src="js/custom.js"></script>
           <script src="same.js"></script>
-          <script>
-  const form = document.querySelector('form');
+         <script>
+const form = document.querySelector('#signupForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  const email = document.querySelector('#email').value.trim();
+  const password = document.querySelector('#password').value.trim();
+  const confirmPassword = document.querySelector('#confirm_password').value.trim();
 
-    const email = document.querySelector('#email').value.trim();
-    const password = document.querySelector('#password').value.trim();
-    const confirmPassword = document.querySelector('#confirm_password').value.trim();
+  const errorDiv = document.querySelector('#errorMessage');
+  const successDiv = document.querySelector('#successMessage');
+  errorDiv.textContent = '';
+  successDiv.textContent = '';
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
+  if (password !== confirmPassword) {
+    errorDiv.textContent = "Passwords do not match.";
+    return;
+  }
+
+  try {
+    const res = await fetch('http://localhost:5000/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+      successDiv.textContent = "Registration successful! Check your email for an activation link.";
+      form.reset();
+    } else {
+      errorDiv.textContent = data.error || "Registration failed.";
     }
-
-    try {
-      const res = await fetch('http://localhost:5000/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      const data = await res.json();
-      if (res.ok) {
-        alert(data.message || "Registration successful!");
-        window.location.href = 'sign-in.html';
-      } else {
-        alert(data.message || "Registration failed!");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Error occurred. Try again later.");
-    }
-  });
+  } catch (error) {
+    errorDiv.textContent = "Error occurred. Try again later.";
+  }
+});
 </script>
 
     </body>

@@ -89,19 +89,22 @@ https://www.tooplate.com/view/2127-little-fashion
 
                             <div class="row">
                                 <div class="col-lg-8 col-11 mx-auto">
-                                    <form role="form" method="post">
-
+                                    <form role="form" id="signinForm" method="post">
+<!-- pattern="[^ @]*@[^ @]*" -->
                                         <div class="form-floating mb-4 p-0">
-                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
+                                            <input type="email" name="email" id="email"  class="form-control" placeholder="Enter your registered email" required>
 
                                             <label for="email">Email address</label>
                                         </div>
 
                                         <div class="form-floating p-0">
-                                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
 
                                             <label for="password">Password</label>
                                         </div>
+                                        <div id="errorMessage" style="color: red; text-align: center;"></div>
+                                        <div id="successMessage" style="color: green; text-align: center;"></div>
+
 
                                         <div class="at">
                                         <button type="submit" class="butt" id="formi">
@@ -210,36 +213,40 @@ https://www.tooplate.com/view/2127-little-fashion
         <script src="js/custom.js"></script>
         <script src="same.js"></script>
         <script>
-  const form = document.querySelector('form');
+const form = document.querySelector('#signinForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  const email = document.querySelector('#email').value.trim();
+  const password = document.querySelector('#password').value.trim();
 
-    const email = document.querySelector('#email').value.trim();
-    const password = document.querySelector('#password').value.trim();
+  const errorDiv = document.querySelector('#errorMessage');
+  const successDiv = document.querySelector('#successMessage');
+  errorDiv.textContent = '';
+  successDiv.textContent = '';
 
-    try {
-      const res = await fetch('http://localhost:5000/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      const data = await res.json();
+  try {
+    const res = await fetch('http://localhost:5000/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
 
-      if (res.ok && data.token) {
-        localStorage.setItem('token', data.token);
-        alert(data.message || "Login successful!");
+    if (res.ok && data.token) {
+      localStorage.setItem('token', data.token);
+      successDiv.textContent = "Login successful! Redirecting to your Dashboard...";
+      setTimeout(() => {
         window.location.href = 'dashboard.html';
-      } else {
-        alert(data.message || "Invalid email or password.");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Error occurred. Try again later.");
+      }, 1500);
+    } else {
+      errorDiv.textContent = data.message || "Invalid email or password.";
     }
-  });
+  } catch (error) {
+    errorDiv.textContent = "Error occurred. Try again later.";
+  }
+});
 </script>
-
 
     </body>
 </html>

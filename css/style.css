@@ -224,19 +224,36 @@ html{
 .ministries_section {
   padding: 90px 0;
   text-align: center;
+  align-items: center;
 }
 
 .ministries_section .heading_container {
   margin-bottom: 40px;
+  align-items: center;
+  
+}
+.ministries_section .row{
+  gap: 0.1rem
 }
 
 .ministries_section .ministry_box {
-  background-color: #ffffff;
+  display: inline-block;
+  background-color: #f1f2f3;
+  color: #000;
+  max-width : 260px;
+  max-height: 410px;
   border-radius: 15px;
-  padding: 30px 20px;
-  border: 3px solid black;
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap:0.1rem;
+  padding: 10px 20px;
+  border: 2px solid #f1f2f3;
   margin: 15px;
-  box-shadow: 0px 5px 15px rgba(30, 7, 2, 0.25);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.872);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -244,7 +261,12 @@ html{
   transform: translateY(-5px);
   box-shadow: 0px 10px 25px rgba(30, 7, 2, 0.4);
 }
-
+.ministries_section .ministry_box img {
+width: 100%;
+height: 200px;
+margin-bottom: 20px;
+border-radius: 5px;
+}
 .ministries_section .ministry_box h3 {
   font-size: 1.25rem;
   font-weight: bold;
@@ -254,7 +276,7 @@ html{
 
 .ministries_section .ministry_box p {
   font-size: 15px;
-  color: #4d4d4d;
+  color: #0a0000;
 }
 
 /* =========================================================
@@ -276,18 +298,19 @@ html{
   padding: 15px;
   margin: 15px;
   border-radius: 50px;
-  border: 2px solid rgb(30, 7, 2);
+  border: 1px solid rgba(0, 0, 0, 0.4);
   color: rgb(30, 7, 2);
   text-align: center;
   transition: all 0.3s ease;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.788);
 }
 .giving_section .btn:hover {
   background: linear-gradient(to top , rgba(255, 216, 42, 0.931),rgb(255, 220, 122), rgb(223, 177, 10));;
-  border: 2px solid rgb(102, 94, 37);
+  border: 1px solid rgb(102, 94, 37);
   color: rgba(30, 7, 2, 1);
   transform: scale(1.03);
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 5px 0px rgb(102, 94, 37);
 }
 
 .giving_section .giving_box h4 {
@@ -680,7 +703,9 @@ a:focus {
   align-items: center;
   
 }
-
+.church_section .box:hover{
+  transform: scale(1.09);
+}
 
 
 .church_section .box a {
@@ -722,6 +747,7 @@ a:focus {
 .church_section .box .img-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
 }
 
 .church_section .box .img-box img {
@@ -798,11 +824,11 @@ a:focus {
 }
 
 /* ✅ Responsive Images */
-.church_section .box .img-box {
+/* .church_section .box .img-box {
   padding: 15px 30px;
   height: auto;
   width: 100%;
-}
+} */ */
 
 .church_section .box .img-box img {
   max-width: 100%;
@@ -822,12 +848,93 @@ a:focus {
     flex: 0 1 calc(50% - 1rem);
     /* 2 columns on tablets and phones */
   }
+  .church_section .box .img-box {
+  padding: 15px 30px;
+  height: auto;
+  width: 100%;
+} 
+
+.ministries_section .ministry_box {
+    padding: 1px 30px;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
 }
+.ministries_section .row{
+  gap: 1rem;
+  display: inline-block;
+  justify-content: center;
+}
+}
+
+/* @media (max-width:900px) {
+    .church_section .row {
+    gap: 1rem;
+    justify-content: center;
+  }
+    .church_section .box {
+    flex: 0 1 calc(50% - 1rem);
+    }
+    .ministries_section .ministry_box {
+    padding: 1px 30px;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  flex: 0 1 calc(50% - 1rem);
+  }
+
+  .ministries_section .row{
+  gap: 3rem;
+  display: inline-block;
+}
+    } */
+@media (max-width:1100px) {
+  .church_section .row {
+    gap: 2rem;
+    justify-content: center;
+  }
+  .church_section .box {
+    flex: 0 1 calc(50% - 1rem);
+    /* 2 colum */}
+  .ministries_section .ministry_box {
+    padding: 1px 30px;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    flex: 0 1 calc(50% - 1rem);
+    }
+
+  .ministries_section .row{
+  gap: 0.1rem;
+  display: inline-block;
+}
+    }
 
 @media (max-width: 480px) {
   .church_section .box {
     flex: 0 1 100%; /* 1 column for very small screens */
   }
+  .church_section .box .img-box {
+  padding: 10px 35px;
+  height: auto;
+  width: 100%;
+} 
+.ministries_section .ministry_box {
+  padding: 1px 35px;
+  height: 100%;
+  width: 100%;
+}
+.ministries_section .ministry_box img {
+width: 200px;
+height: 200px;
+margin-bottom: 20px;
+border-radius: 5px;
+}
+.ministries_section .row{
+  gap: 0.1rem;
+  display: inline-block;
+}
+
 }
 .about_section {
   padding: 60px 15px;
@@ -969,19 +1076,20 @@ a:focus {
 .offer_section .box .detail-box a {
   display: inline-block;
   padding: 8px 40px;
-  background-color: transparent;
-  color: rgba(255, 216, 42, 0.931);
+  background-color: black;
+  color: white;
   border-radius: 5px;
-  border: 1px solid rgba(255, 216, 42, 0.931);
+  border: 1px solid black;
   -webkit-transition: all .2s;
   transition: all .2s;
   margin-top: 10px;
+  box-shadow: 0px 5px 0px rgba(49, 36, 36, 0.933);
 }
 
 .offer_section .box .detail-box a:hover {
   background-color: rgba(255, 216, 42, 0.931);
   color: rgb(30, 7, 2);
-  box-shadow: 0px 10px 25px rgba(156, 144, 144, 0.4);
+  box-shadow: 0px 5px 0px rgb(7, 6, 2);
 }
 
 .offer_section .box.offer-box1 {
@@ -1123,8 +1231,8 @@ a:focus {
   margin: 45px;
   padding: 35px 25px;
   border-radius: 15px;
-  background-color: rgb(18, 18, 18);
-  color: #ffffff;
+  background: #f1f2f3;
+  color: #0a0909;
   box-shadow: 0px 10px 25px rgb(0, 0, 0);
   
 }
@@ -1150,7 +1258,9 @@ a:focus {
   width: 145px;
   height: 145px;
   border-radius: 100%;
-  border: 7px solid rgba(252, 247, 225, 0.931);
+  border: 7px solid #b6b7b8;
+  border-radius: 50%;
+  box-shadow: 0 5px 0px gray;
 }
 
 .client_section .box .detail-box {
@@ -1169,7 +1279,7 @@ a:focus {
 }
 
 .client_section .box .detail-box .name h6 {
-  color: rgba(255, 216, 42, 0.931);
+  color: rgba(90, 74, 0, 0.973);
   font-size: 20px;
 }
 
@@ -1199,6 +1309,7 @@ a:focus {
   background-position: center;
   border-radius: 5px;
   margin: 0 2.5px;
+  box-shadow: 0 5px 0px rgb(7, 0, 0);
 }
 
 .client_section .carousel-control-prev:hover,
@@ -1207,7 +1318,8 @@ a:focus {
   color: rgb(30, 7, 2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: scale(1.1);
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+  transform: matrix3d(1);
+  box-shadow: 0 5px 0px rgb(35, 28, 0);
 }
 
 .client_section .carousel-control-next {
