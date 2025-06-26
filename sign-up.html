@@ -57,7 +57,7 @@ https://www.tooplate.com/view/2127-little-fashion
           </span>
         </a>
         <div class="" id="">
-          <div class="custom_menu-btn">
+          <div class="custom_menu-btn light">
             <button onclick="openNav()">
               <span class="s-1"> </span>
               <span class="s-2"> </span>
@@ -78,78 +78,82 @@ https://www.tooplate.com/view/2127-little-fashion
       </nav>
     </div>
   </header>
+    <br>
+  <br>
+  <br>
   <!-- end header section -->
 
 
             <section class="sign-in-form section-padding">
-                <div class="container">
-                    <div class="row">
+  <div class="container">
+    <h1 class="hero-title text-center">Sign Up</h1>
 
-                        <div class="col-lg-8 mx-auto col-12">
+    <!-- Social Sign Up Buttons -->
+    <div class="social-login">
+      <a href="https://accounts.google.com/" class="custom-btn social-btn">
+        <i class="fab fa-google"></i> Continue with Google
+      </a>
+      <a href="#" class="custom-btn social-btn">
+        <i class="fab fa-facebook-f"></i> Continue with Facebook
+      </a>
+    </div>
 
-                            <h1 class="hero-title text-center mb-5">Sign Up</h1>
+    <div class="div-separator"><span>or</span></div>
 
-                            <div class="social-login d-flex flex-column w-50 m-auto">
-                                
-                                <a href="google.com" class="btn custom-btn social-btn mb-4">
-                                    <span><i class="fa fa-google me" aria-hidden="true"></i>
+    <!-- Registration Form -->
+    <form class="signup-form" method="POST">
+      <div class="form-floating">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          pattern="[^ @]*@[^ @]*"
+          class="form-control"
+          placeholder="Email address"
+          required
+        />
+        <label for="email">Email address</label>
+      </div>
 
-                                    Continue with Google</span>
-                                </a>
+      <div class="form-floating">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          pattern="[0-9a-zA-Z]{4,10}"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
+        <label for="password">Password</label>
+        <p class="texty">* Shall include 0–9 A–Z/a–z (4–10 characters)</p>
+      </div>
 
-                                <a href="#" class="btn custom-btn social-btn">
-                                    <span><i class="fa fa-facebook me" aria-hidden="true"></i>
+      <div class="form-floating">
+        <input
+          type="password"
+          name="confirm_password"
+          id="confirm_password"
+          pattern="[0-9a-zA-Z]{4,10}"
+          class="form-control"
+          placeholder="Confirm Password"
+          required
+        />
+        <label for="confirm_password">Confirm Password</label>
+      </div>
 
-                                    Continue with Facebook</span>
-                                </a>
-                            </div>
-                            <br>
+      <div class="at">
+        <button type="submit" class="butt" id="formi">Create Account</button>
+        <br>
+      <br>
+      </div>
+      
 
-                            <div class="div-separator "><span>or</span></div>
-                            <br>
-                            <div class="row">
-                                <div class="col-lg-8 col-11 mx-auto">
-                                    <form role="form" method="post">
-
-                                        <div class="form-floating">
-                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
-
-                                            <label for="email">Email address</label>
-                                        </div>
-
-                                        <div class="form-floating my-4">
-                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required>
-
-                                            <label for="password">Password</label>
-                                            
-                                            <p class="texty">* shall include 0-9 a-z A-Z in 4 to 10 characters</p>
-                                        </div>
-
-                                        <div class="form-floating">
-                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required>
-
-                                            <label for="confirm_password">Password Confirmation</label>
-                                        </div>
-
-                                        <div class="at">
-                                        <button type="submit" class="butt" id="formi" >
-                                            Create account
-                                        </button>
-                                        </div>
-
-                                        <p class="text-center"> Already have an account? Please <a href="sign-in.html" class="meme">Sign In</a></p>
-
-                                    </form>
-                                </div>
-                                
-                            </div>
-                            
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <!-- <script>
+      <p class="text-center">Already have an account? <a href="sign-in.html" class="meme">Sign In</a></p>
+    </form>
+  </div>
+</section>
+          <!-- <script>
                 getElementbyid
             </script> -->
 
@@ -164,7 +168,7 @@ https://www.tooplate.com/view/2127-little-fashion
               <input type="email" placeholder="Enter your email">
               <button>
                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </button>
+            </form><br></button><br><p>Subscribe to our newsletter for the latest sermons, church news, and upcoming events delivered straight to your inbox. Stay connected with the Victory Chapel family.</p>
             </form>
           </div>
         </div>

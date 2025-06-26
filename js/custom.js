@@ -9,7 +9,41 @@ getYear();
 
 
 
+// Simple example
+const menuBtn = document.querySelector('.custom_menu-btn');
+const sliderSection = document.querySelector('.slider_section');
 
+if (sliderSection) {
+  // Dark slider = add dark-menu
+  menuBtn.classList.add('dark-menu');
+}
+
+// Detect when the slider is in view
+window.addEventListener("DOMContentLoaded", function() {
+  const menuButton = document.querySelector('.custom_menu-btn');
+  const sliderSection = document.querySelector('.slider_section');
+
+  if (!menuButton || !sliderSection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Slider is visible: make menu lines light (white) for dark background
+        menuButton.classList.remove('light');
+        menuButton.classList.add('dark');
+      } else {
+        // Slider is NOT visible: make menu lines dark for light background
+        menuButton.classList.remove('dark');
+        menuButton.classList.add('light');
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.1 // Adjust as needed
+  });
+
+  observer.observe(sliderSection);
+});
 
 
 // overlay menu
