@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome, <span id="userEmail"></span>!</h2>
+<script>
+  async function loadDashboard() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("Not logged in! Redirecting to login page.");
+      window.location.href = 'sign-in.html';
+      return;
+    }
+
+    try {
+      const res = await fetch('http://localhost:5000/auth/dashboard', {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        document.getElementById('userEmail').innerText = data.email;
+        // You can display other user information here
+      } else {
+        alert(data.message || "Session expired. Please log in again.");
+        window.location.href = 'sign-in.html';
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error loading Dashboard.");
+    }
+  }
+
+  loadDashboard();
+</script>
+
+</body>
+</html>

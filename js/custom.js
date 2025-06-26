@@ -39,3 +39,30 @@ $(document).on("click", '[data-toggle="lightbox"]', function (event) {
     event.preventDefault();
     $(this).ekkoLightbox();
 });
+
+$(function() {
+  "use strict";
+
+  /* Preloader */
+  setTimeout(function() {
+    $('.loader_bg').fadeToggle();
+  }, 1500);
+
+  // …other site-wide code goes here
+});
+
+
+// Theme Toggle Functionality
+const themeToggle = document.querySelector('.theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', newTheme);
+    themeToggle.innerHTML = `<i class="fas fa-${newTheme === 'dark' ? 'moon' : 'sun'}"></i>`;
+});
+
+// Initialize theme icon
+const initialTheme = body.getAttribute('data-theme') || 'dark';
+themeToggle.innerHTML = `<i class="fas fa-${initialTheme === 'dark' ? 'moon' : 'sun'}"></i>`;

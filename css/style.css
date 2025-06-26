@@ -7,15 +7,18 @@ body {
   font-family: 'Poppins', sans-serif;
   font-style:inherit;
   color: #250a01;
-
+  font-weight: 900;
   background-color: hsl(0, 0%, 100%);
   overflow-x: hidden;
 }
 
-
+.darken {
+  filter: brightness(60%);
+}
+/* 
 html{
   scroll-behavior: smooth;
-}
+} */
 
 .layout_padding {
   padding: 90px 0;
@@ -74,16 +77,7 @@ html{
      width: 280px;
 }
 
-.custom-btn {
-  background: transparent;
-  border-radius: 50px;
-  width: 270px;
-  margin-left: 50px;
-  border: 2px solid gray;
-  color: rgb(75, 75, 75);
-  font-size: 16px;
-  padding: 16.50px 20px;
-}
+
 
 .div-separator {
   position: relative;
@@ -115,6 +109,16 @@ html{
   font-size: 14px;
   width: 35px;
   text-transform: uppercase;
+}
+.custom-btn {
+  background: transparent;
+  border-radius: 50px;
+  width: 270px;
+  margin-left: 50px;
+  border: 2px solid gray;
+  color: rgb(75, 75, 75);
+  font-size: 16px;
+  padding: 16.50px 20px;
 }
 
 .custom-btn:hover {
@@ -162,9 +166,149 @@ html{
   
 }
 
-button {
-  touch-action: manipulation;
-  transition: all 0.3s;
+.meme{
+  color:rgb(255, 157, 0);
+  
+  
+}
+.meme:hover{
+  color: rgb(54, 33, 1);
+  text-decoration: underline;
+}
+/* =========================================================
+   MINISTRIES SECTION
+========================================================== */
+.ministries_section {
+  padding: 90px 0;
+  text-align: center;
+}
+
+.ministries_section .heading_container {
+  margin-bottom: 40px;
+}
+
+.ministries_section .ministry_box {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 30px 20px;
+  border: 3px solid black;
+  margin: 15px;
+  box-shadow: 0px 5px 15px rgba(30, 7, 2, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ministries_section .ministry_box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 25px rgba(30, 7, 2, 0.4);
+}
+
+.ministries_section .ministry_box h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: rgba(30, 7, 2, 1);
+  margin-bottom: 10px;
+}
+
+.ministries_section .ministry_box p {
+  font-size: 15px;
+  color: #4d4d4d;
+}
+
+/* =========================================================
+   GIVING SECTION
+========================================================== */
+.giving_section {
+  padding: 90px 0;
+  background: transparent;
+  color:  linear-gradient(to right, rgba(30, 7, 2, 1), black);
+  text-align: center;
+}
+
+.giving_section .heading_container {
+  margin-bottom: 40px;
+}
+
+.giving_section .btn{
+  display: inline-block;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 50px;
+  border: 2px solid rgb(30, 7, 2);
+  color: rgb(30, 7, 2);
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+.giving_section .btn:hover {
+  background: linear-gradient(to top , rgba(255, 216, 42, 0.931),rgb(255, 220, 122), rgb(223, 177, 10));;
+  border: 2px solid rgb(102, 94, 37);
+  color: rgba(30, 7, 2, 1);
+  transform: scale(1.03);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.giving_section .giving_box h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.giving_section .giving_box p {
+  font-size: 15px;
+}
+
+/* ____________________________Screens___________________________________ */
+
+
+@media screen and (max-width: 400px) {
+  .church_section .box .img-box {
+    margin-left: 34.5px;
+}
+.church_section .row{
+  gap: 90rem;
+}
+.custom-btn{
+ margin-left: -50px;
+ max-width: 300px;
+}
+.at button{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: small;
+  background-color:rgb(30, 7, 2);
+  border-radius: 50px;
+  color: white;
+  border: 2px solid rgb(30, 7, 2);
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  margin-right: 100px;
+  margin-left: 50px;
+  width: 200px;
+}
+}
+
+@media screen and (max-width: 360px) {
+  /* New for tiny screens */
+  .custom-btn {
+    font-size: 14px;
+    padding: 12px 16px;
+    margin-left: 0;
+  }
+
+  .at button {
+    font-size: 14px;
+    padding: 8px 18px;
+    margin-left: 0;
+  }
+
+  .church_section .box .img-box {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about_section .img-box::before {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 
@@ -212,51 +356,16 @@ button {
   border: 2px solid rgb(30, 7, 2);
   
 }
-.meme{
-  color:rgb(255, 157, 0);
-  
-  
-}
-.meme:hover{
-  color: rgb(54, 33, 1);
-  text-decoration: underline;
-}
 
-button {
+
+/* button {
   touch-action: manipulation;
   transition: all 0.3s;
-}
+} */
 
-.me i{
+/* .me i{
   color: white;
-}
-}
-
-@media screen and (max-width: 400px) {
-  .church_section .box .img-box {
-    margin-left: 34.5px;
-}
-.church_section .row{
-  gap: 90rem;
-}
-.custom-btn{
- margin-left: -50px;
- max-width: 300px;
-}
-.at button{
-  margin-top: 20px;
-  margin-bottom: 30px;
-  font-size: small;
-  background-color:rgb(30, 7, 2);
-  border-radius: 50px;
-  color: white;
-  border: 2px solid rgb(30, 7, 2);
-  -webkit-transition: all .2s;
-  transition: all .2s;
-  margin-right: 100px;
-  margin-left: 50px;
-  width: 200px;
-}
+} */
 }
 
 /* --------------------------------------------------------- */
@@ -411,7 +520,7 @@ h2 {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border-radius: 15px;
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
+  box-shadow: -1px 5px 17px  rgb(0, 0, 0);
 }
 
 
@@ -734,10 +843,11 @@ a:focus {
 }
 
 .church_section .btn-box a:hover {
-  border: 1px solid rgba(255, 216, 42, 0.931);
+  border: 1px solid rgba(195, 146, 0, 0.931);
   background : rgba(255, 200, 0, 0.931);
   color: rgb(30, 7, 2);
   animation: floatCard 4s ease-in-out infinite;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .about_section .row {
@@ -778,19 +888,23 @@ a:focus {
 .about_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: rgba(255, 216, 42, 0.931);
-  color: rgb(30, 7, 2);
-  border-radius: 5px;
-  border: 1px solid rgba(255, 216, 42, 0.931);
   -webkit-transition: all .2s;
   transition: all .2s;
+  border-radius: 10px;
+  border: 2px solid rgb(30, 7, 2);
+  color: rgb(30, 7, 2);
+  text-align: center;
+  background-color: transparent;
 }
 
 .about_section .detail-box a:hover {
-  background-color: transparent;
-  border: 1px solid rgb(30, 7, 2);
-  color: rgb(30, 7, 2);
+background: linear-gradient(to top , rgba(255, 216, 42, 0.931),rgb(255, 220, 122), rgb(223, 177, 10));;
+  border: 2px solid rgb(102, 94, 37);
+  color: rgba(30, 7, 2, 1);
+  transform: scale(1.03);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
 }
+
 
 .offer_section .row > div {
   display: -webkit-box;
@@ -815,6 +929,9 @@ a:focus {
 .offer_section .box img {
   width: 100%;
   min-height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.15); */
+  border-radius: 15px;
+  box-shadow: 0px 10px 25px rgb(0, 0, 0);
 }
 
 .offer_section .box .detail-box {
@@ -838,7 +955,7 @@ a:focus {
           justify-content: center;
   color: #ffffff;
   padding: 25px;
-  background-color: rgba(0, 0, 0, 0.15);
+  
 }
 
 .offer_section .box .detail-box h2 {
@@ -860,6 +977,7 @@ a:focus {
 .offer_section .box .detail-box a:hover {
   background-color: rgba(255, 216, 42, 0.931);
   color: rgb(30, 7, 2);
+  box-shadow: 0px 10px 25px rgba(156, 144, 144, 0.4);
 }
 
 .offer_section .box.offer-box1 {
@@ -971,6 +1089,7 @@ a:focus {
 .more_section .box .detail-box a:hover {
   background-color: rgb(30, 7, 2);
   color: rgba(255, 216, 42, 0.931);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
   
 }
 
@@ -997,6 +1116,7 @@ a:focus {
   border-radius: 15px;
   background-color: rgb(18, 18, 18);
   color: #ffffff;
+  box-shadow: 0px 10px 25px rgb(0, 0, 0);
   
 }
 
@@ -1078,10 +1198,32 @@ a:focus {
   color: rgb(30, 7, 2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: scale(1.1);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .client_section .carousel-control-next {
   left: initial;
+}
+
+/* Back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  font-size: 20px;
+  padding: 12px 16px;
+  background-color: rgba(255, 216, 42, 0.931);
+  color: #1e0702;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+#backToTop:hover {
+  background-color: #1e0702;
+  color: rgba(255, 216, 42, 0.931);
 }
 
 .info_section {
@@ -1301,4 +1443,8 @@ a:focus {
 .footer_section p a {
   color: inherit;
 }
+
+
 /*# sourceMappingURL=style.css.map */
+
+
