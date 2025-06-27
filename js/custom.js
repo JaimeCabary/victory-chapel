@@ -107,6 +107,35 @@ $(function() {
     return false;
   });
   
+function openLiveOverlay() {
+  document.querySelector('.liveOverlay').style.display = 'flex';
+}
+
+function closeLiveOverlay() {
+  const overlay = document.querySelector('.liveOverlay');
+  const iframe = overlay.querySelector('iframe');
+
+  // Stop the video by resetting src
+  const currentSrc = iframe.src;
+  iframe.src = ''; // Clear first
+  iframe.src = currentSrc;
+
+  // Hide overlay
+  overlay.style.display = 'none';
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const watchBtn = document.querySelector('.watchLiveBtn');
+  if (watchBtn) {
+    watchBtn.addEventListener('click', openLiveOverlay);
+  }
+
+  const closeBtn = document.querySelector('.closeOverlayBtn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeLiveOverlay);
+  }
+});
+
 
 // Theme Toggle Functionality
 const themeToggle = document.querySelector('.theme-toggle');
