@@ -22,6 +22,7 @@ if (sliderSection) {
 window.addEventListener("DOMContentLoaded", function() {
   const menuButton = document.querySelector('.custom_menu-btn');
   const sliderSection = document.querySelector('.slider_section');
+  const infoSection = this.document.querySelector('info_section');
 
   if (!menuButton || !sliderSection) return;
 
@@ -31,7 +32,8 @@ window.addEventListener("DOMContentLoaded", function() {
         // Slider is visible: make menu lines light (white) for dark background
         menuButton.classList.remove('light');
         menuButton.classList.add('dark');
-      } else {
+      }
+      else {
         // Slider is NOT visible: make menu lines dark for light background
         menuButton.classList.remove('dark');
         menuButton.classList.add('light');
@@ -44,6 +46,9 @@ window.addEventListener("DOMContentLoaded", function() {
 
   observer.observe(sliderSection);
 });
+
+
+
 
 
 // overlay menu
@@ -86,6 +91,23 @@ $(function() {
 });
 
 
+
+  //  Scroll To Top 
+  $(window).on('scroll',function () {
+    if ($(this).scrollTop() > 300) {
+      $('.return-to-top').fadeIn();
+    } else {
+      $('.return-to-top').fadeOut();
+    }
+  });
+  $('.return-to-top').on('click',function(){
+      $('html, body').animate({
+      scrollTop: 0
+    }, 1500);
+    return false;
+  });
+  
+
 // Theme Toggle Functionality
 const themeToggle = document.querySelector('.theme-toggle');
 const body = document.body;
@@ -100,3 +122,4 @@ themeToggle.addEventListener('click', () => {
 // Initialize theme icon
 const initialTheme = body.getAttribute('data-theme') || 'dark';
 themeToggle.innerHTML = `<i class="fas fa-${initialTheme === 'dark' ? 'moon' : 'sun'}"></i>`;
+
