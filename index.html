@@ -106,65 +106,53 @@
   <!-- church section -->
 
   <section class="church_section layout_padding">
-    <div class="container" >
-      <div class="heading_container heading_center">
-        <h2>
-          Upcoming events
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="images/flyer.jpg" target="_blank">
-              <div class="img-box">
-                <img src="images/flyer.jpg" alt="">
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="images/flyer.jpg" target="_blank">
-              <div class="img-box">
-                <img src="images/flyer.jpg" alt="">
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="images/flyer.jpg" target="_blank">
-              <div class="img-box">
-                <img src="images/flyer.jpg" alt="">
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="box">
-            <a href="images/flyer.jpg" target="_blank">
-              <div class="img-box">
-                <img src="images/flyer.jpg" alt="">
-              </div>
-            </a>
-          </div>
-        </div>
-      
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Upcoming events</h2>
     </div>
-    <div class="btn-box">
-        <a href="gallery.html">
-          View our Gallery
-        </a>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="img-box open-modal" data-src="images/flyer.jpg">
+            <img src="images/flyer.jpg" alt="">
+          </div>
+        </div>
       </div>
-  </section>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="img-box open-modal" data-src="images/flyer.jpg">
+            <img src="images/flyer.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="img-box open-modal" data-src="images/flyer.jpg">
+            <img src="images/flyer.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="img-box open-modal" data-src="images/flyer.jpg">
+            <img src="images/flyer.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- end church section -->
+    <div class="btn-box">
+      <a href="gallery.html">View our Gallery</a>
+    </div>
+  </div>
+</section>
+
 
  <section class="about_section" data-theme="light">
   <div class="container">
     <div class="row">
       <div class="col-md-6 img-column">
-        <div class="img-box">
+        <div class="img-box open-modal">
           <img src="images/over.jpg" alt="About Victory Chapel">
         </div>
       </div>
@@ -234,7 +222,7 @@
             <div class="row">
               <div class="col-md-11 col-lg-10 mx-auto">
                 <div class="box">
-                  <div class="img-box">
+                  <div class="img-box open-modal">
                     <img src="images/Rainluvaa.jpg" alt="" />
                   </div>
                   <div class="detail-box">
@@ -255,7 +243,7 @@
             <div class="row">
               <div class="col-md-11 col-lg-10 mx-auto">
                 <div class="box">
-                  <div class="img-box">
+                  <div class="img-box open-modal">
                     <img src="images/apos.jpg" alt="" />
                   </div>
                   <div class="detail-box">
@@ -277,7 +265,7 @@
             <div class="row">
               <div class="col-md-11 col-lg-10 mx-auto">
                 <div class="box">
-                  <div class="img-box">
+                  <div class="img-box open-modal">
                     <img src="images/meme.jpg" alt="" />
                   </div>
                   <div class="detail-box">
@@ -392,7 +380,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="box">
-            <div class="img-box">
+            <div class="img-box open-modal">
               <img src="images/kids1.jpg" alt="">
               <h4 class="more_date">
                 27th <br>
@@ -413,7 +401,7 @@
         </div>
         <div class="col-md-6">
           <div class="box">
-            <div class="img-box">
+            <div class="img-box open-modal">
               <img src="images/pastor.jpg" alt="">
               <h4 class="more_date">
                 12th <br>
@@ -530,7 +518,7 @@
   <!-- end info_section -->
 
 
-  <!-- footer section -->
+   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
       <p>
@@ -538,9 +526,21 @@
         <a href="index.html"> Heccker Group</a>
       </p>
     </div>
-    
-  </footer>
-  <!-- footer section -->
+ 
+   <div id="imageModal" class="modal" style="display: none;">
+      <span class="close-modal">&times;</span>
+      <div class="modal-img-wrapper">
+        <img id="modalImg" class="modal-content" alt="Enlarged Image">
+      </div>
+    </div>
+
+ 
+   <div id="imageModal" class="modal" style="display: none;">
+      <span class="close-modal">&times;</span>
+      <div class="modal-img-wrapper">
+        <img id="modalImg" class="modal-content" alt="Enlarged Image">
+      </div>
+    </div>
 
 
   <!-- jQery -->

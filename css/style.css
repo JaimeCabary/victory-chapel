@@ -693,15 +693,10 @@ a:focus {
   
 }
 
-
 .church_section .box {
-  background-color: transparent;
-  position: relative;
-  padding: 10px;
-  margin-top: 25px;
-  border-radius: 20px;
-  align-items: center;
-  
+  flex: 1 1 calc(25% - 1.5rem); /* 4 columns by default */
+  max-width: 300px;
+  margin: 0 auto;
 }
 .church_section .box:hover{
   transform: scale(1.09);
@@ -713,28 +708,21 @@ a:focus {
 }
 
 .church_section .box .img-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 15px, 30px;
-  height:245px ;
-  width:245px;
-  gap: 2rem;
-  animation: floatCard 4s ease-in-out infinite;
-  border-radius: 12px;
-  /* align-items: center; */
+  background: linear-gradient(to bottom right, #fff 0%, #eee 100%);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  
+  height: auto;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
-.church_section .row{
-  gap: -15px;
+.church_section .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 
@@ -749,14 +737,23 @@ a:focus {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   transform: scale(1.03);
 }
+.church_section .img-box:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 
-.church_section .box .img-box img {
-  max-width: 245px;
-  height: 245px;
+}
+
+
+.church_section .img-box img {
+  width: 220px;           /* 👈 Set your desired width */
+  height: 220px;           /* Keep aspect ratio */
+  max-width: 100%;        /* Prevent overflow on small screens */
   border-radius: 12px;
   border: 2px solid #ffffff;
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
-  
+  object-fit: cover;      /* Keeps it clean */
+  display: block;
+  margin: 0 auto;         /* Center the image */
 }
 
 .church_section .box .detail-box {
@@ -837,6 +834,70 @@ a:focus {
   border-radius: 12px;
   border: 2px solid #ffffff;
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-img-wrapper {
+  background: #fff;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.modal-content {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+  color: #f1c40f;
+}
+
+
+
+@media (max-width: 1200px) {
+  .church_section .box {
+    flex: 1 1 calc(33.33% - 1rem); /* 3 columns */
+  }
+}
+@media (max-width: 900px) {
+  .church_section .box {
+    flex: 1 1 calc(50% - 1rem); /* 2 columns */
+  }
+}
+@media (max-width: 600px) {
+  .church_section .box {
+    flex: 1 1 100%; /* 1 column */
+  }
 }
 
 /* ✅ Responsive Grid Tweaks */

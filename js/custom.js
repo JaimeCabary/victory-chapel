@@ -136,6 +136,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Modal logic for church event flyers
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".close-modal");
+
+  document.querySelectorAll(".open-modal").forEach(el => {
+    el.addEventListener("click", function () {
+      const src = this.getAttribute("data-src") || this.querySelector("img").src;
+      modalImg.src = src;
+      modal.style.display = "flex"; // key to flex layout
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalImg.src = "";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
+  });
+});
 
 // Theme Toggle Functionality
 const themeToggle = document.querySelector('.theme-toggle');
