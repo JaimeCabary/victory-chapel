@@ -218,9 +218,7 @@ html{
   }
 }
 
-/* ========================================
-   MINISTRIES SECTION — BEAUTIFIED
-========================================= */
+/* =============== MINISTRIES SECTION =============== */
 .ministries_section {
   padding: 90px 0;
   text-align: center;
@@ -246,31 +244,31 @@ html{
   margin-top: 10px;
 }
 
+/* ✅ Flex grid */
 .ministries_section .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  padding: 0 15px;
 }
 
-.ministry_box {
+/* ✅ Ministry boxes */
+.ministries_section .ministry_box {
   background-color: #ffffff;
   border-radius: 20px;
   padding: 20px 15px;
   text-align: center;
   width: 100%;
   max-width: 260px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgb(0, 0, 0);
   transition: all 0.3s ease-in-out;
   border: 1px solid #eee;
+  flex: 1 1 calc(50% - 2rem); /* two per row on tablets */
 }
 
-.ministry_box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(30, 7, 2, 0.25);
-}
-
-.ministry_box img {
+/* ✅ Image styling */
+.ministries_section .ministry_box img {
   width: 100%;
   height: 180px;
   object-fit: cover;
@@ -280,19 +278,72 @@ html{
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-.ministry_box h4 {
+/* ✅ Headings and paragraph */
+.ministries_section .ministry_box h4 {
   font-size: 1.25rem;
   font-weight: 600;
   color: #1e0702;
   margin-bottom: 8px;
 }
 
-.ministry_box p {
+.ministries_section .ministry_box p {
   font-size: 14.5px;
   color: #444;
   line-height: 1.6;
   padding: 0 10px;
 }
+
+/* ✅ Hover effect */
+.ministries_section .ministry_box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(30, 7, 2, 0.25);
+}
+
+/* =========== MEDIA QUERIES =========== */
+@media (max-width: 768px) {
+  .ministries_section .ministry_box {
+    flex: 1 1 100%; /* One per row on small screens */
+    display: block;
+    max-width: 350px;
+
+    margin-top: 20px ;
+    box-shadow: 0, 8px 20px black;
+
+  }
+
+  .ministries_section .row {
+    gap: 3rem;
+  }
+
+  .ministries_section .ministry_box img {
+    height: 300px;
+    width:300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ministries_section .ministry_box {
+    flex: 1 1 calc(25% - 2rem); /* 4 per row */
+  }
+    .ministries_section .row {
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ministries_section .ministry_box {
+    flex: 1 1 calc(25% - 2rem); /* 4 per row */
+  }
+    .ministries_section .row {
+    gap: 3rem;
+  }
+}
+
+
+/* extra------------------------------------------------ */
+
+
+/* ----------------------------------- */
 
 .giving_section {
   padding: 90px 0;
@@ -303,13 +354,16 @@ html{
 .giving_section .heading_container {
   margin-bottom: 40px;
 }
+.giving_section .row{
+  gap: -200px;
+}
 
 .giving_section .giving-image {
   width: 100%;
   max-width: 260px;
   height: 260px;
   border-radius: 15px;
-  box-shadow: 0 5px 17px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 17px rgb(0, 0, 0);
   transition: transform 0.3s ease;
 }
 
@@ -735,7 +789,7 @@ a:focus {
   background: linear-gradient(to bottom right, #fff 0%, #eee 100%);
   padding: 20px;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgb(0, 0, 0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: auto;
   width: 100%;
@@ -774,7 +828,7 @@ a:focus {
   max-width: 100%;        /* Prevent overflow on small screens */
   border-radius: 12px;
   border: 2px solid #ffffff;
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 7px rgb(0, 0, 0);
   object-fit: cover;      /* Keeps it clean */
   display: block;
   margin: 0 auto;         /* Center the image */
@@ -857,7 +911,7 @@ a:focus {
   height: auto;
   border-radius: 12px;
   border: 2px solid #ffffff;
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.881);
 }
 .modal {
   display: none;
@@ -875,7 +929,7 @@ a:focus {
   background: #fff;
   padding: 8px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.973);
   display: inline-block;
   max-width: 90vw;
   max-height: 90vh;
@@ -1034,14 +1088,19 @@ border-radius: 5px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.779);
 }
+.about_section .img-box:hover {
+  box-shadow: 0px 10px 25px rgb(0, 0, 0);
+  transform: scale(1.05);
 
+}
 .about_section .img-box img {
   display: block;
   width: 100%;           /* Responsive across screen sizes */
   height: auto;
   border-radius: 12px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 25px rgb(0, 0, 0);
 }
 
 .about_section .img-box::before {
@@ -1102,6 +1161,7 @@ border-radius: 5px;
     margin-bottom: 20px;
   }
 }
+
 
 .offer_section .row > div {
   display: -webkit-box;
@@ -1265,11 +1325,13 @@ border-radius: 5px;
 
 .more_section .box .img-box img {
   width: 100%;
+  height: auto; /* responsive */
+  max-height: 300px; /* control extreme height on tall phones */
+  object-fit: cover; /* crop edges slightly to fill box */
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
-  height: 350px;
   box-shadow: 0 5px 0px rgba(17, 16, 16, 0.257);
-  
+  display: block;
 }
 
 .more_section .box .detail-box {
@@ -1302,6 +1364,25 @@ border-radius: 5px;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
   
 }
+@media screen and (max-width: 480px) {
+  .more_section .box .img-box img {
+    max-height: 200px;
+  }
+
+  .more_section .box .detail-box {
+    padding: 15px;
+  }
+
+  .more_section .box .detail-box p {
+    font-size: 14px;
+  }
+
+  .more_section .box .detail-box a {
+    padding: 8px 25px;
+    font-size: 14px;
+  }
+}
+
 
 .client_section .heading_container {
   -webkit-box-align: center;

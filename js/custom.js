@@ -163,6 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+
 // Theme Toggle Functionality
 const themeToggle = document.querySelector('.theme-toggle');
 const body = document.body;
