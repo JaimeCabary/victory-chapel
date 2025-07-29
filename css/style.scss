@@ -482,9 +482,9 @@ a:focus {
 
 // end about section
 
-// offer section
+// alter section
 
-.offer_section {
+.alter_section {
   .row>div {
     display: flex;
     flex-direction: column;
@@ -526,7 +526,7 @@ a:focus {
       }
     }
 
-    &.offer-box1 {
+    &.alter-box1 {
       min-height: 225px;
 
       .detail-box {
@@ -538,8 +538,8 @@ a:focus {
       }
     }
 
-    &.offer-box2,
-    &.offer-box3 {
+    &.alter-box2,
+    &.alter-box3 {
       .detail-box {
         h2 {
           font-size: 2rem;
@@ -547,14 +547,14 @@ a:focus {
       }
     }
 
-    &.offer-box2 {
+    &.alter-box2 {
       .detail-box {
         align-items: flex-end;
         justify-content: flex-end;
       }
     }
 
-    &.offer-box3 {
+    &.alter-box3 {
       .detail-box {
         align-items: flex-start;
         justify-content: flex-end;
@@ -563,7 +563,7 @@ a:focus {
   }
 }
 
-// end offer section
+// end alter section
 
 
 // more section
